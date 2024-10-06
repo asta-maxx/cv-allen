@@ -17,7 +17,8 @@ const config = withPWA({
   distDir: 'dist', // Custom output directory for build files
   images: {
     unoptimized: true // Disable Next.js image optimization
-  }
+  },
 });
 
-export default config; // Use ES module export syntax
+// Export the configuration as an ES module
+export default config;
