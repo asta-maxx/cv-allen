@@ -1,18 +1,23 @@
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
-  output: 'export',
- 
-  distDir:'dist'
-  // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
-  // trailingSlash: true,
- 
-  // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
-  // skipTrailingSlashRedirect: true,
- 
-  // Optional: Change the output directory `out` -> `dist`
-  // distDir: 'dist',
-}
- 
-module.exports = nextConfig
+// next.config.js
+await import("./src/env.js");
+
+import WithPWA from "next-pwa";
+
+const withPWA = WithPWA({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development", // Disable in development mode
+  register: true,
+  scope: "/",
+  sw: "service-worker.js",
+});
+
+const config = withPWA({
+  reactStrictMode: true,
+  output: 'export', // Enable static export,
+  distDir: 'dist',
+  images:{
+    unoptimized: true
+  }
+});
+
+export default config; // Use ES module export syntax
