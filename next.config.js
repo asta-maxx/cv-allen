@@ -1,24 +1,34 @@
-// next.config.js
-import WithPWA from "next-pwa"; // Importing the PWA module
+/**
+ * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
+ * for Docker builds.
+ */
+await import("./src/env.js");
+import WithPWA from "next-pwa";
 
-// Setting up PWA with configuration options
 const withPWA = WithPWA({
   dest: "public",
-  disable: process.env.NODE_ENV === "development", // Disable in development mode
+  disable: process.env.NODE_ENV === "development",
   register: true,
   scope: "/",
   sw: "service-worker.js",
 });
 
-// Main Next.js configuration
+/**
+ * @type {import('next').NextConfig}
+ */
+// @ts-ignore
 const config = withPWA({
   reactStrictMode: true,
-  output: 'export', // Enable static export
-  distDir: 'dist', // Custom output directory for build files
-  images: {
-    unoptimized: true // Disable Next.js image optimization
+
+  /**
+   * If you are using `appDir` then you must comment the below `i18n` config out.
+   *
+   * @see https://github.com/vercel/next.js/issues/41980
+   */
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
   },
 });
 
-// Export the configuration as an ES module
 export default config;
