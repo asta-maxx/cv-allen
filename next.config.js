@@ -20,16 +20,13 @@ const withPWA = WithPWA({
 // @ts-ignore
 const config = withPWA({
   reactStrictMode: true,
+  output: 'export', // Enable static export
 
-  /**
-   * If you are using `appDir`, comment out the below `i18n` config.
-   *
-   * @see https://github.com/vercel/next.js/issues/41980
-   */
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
+  // Commenting out i18n since it's not compatible with output: 'export'
+  // i18n: {
+  //   locales: ["en"],
+  //   defaultLocale: "en",
+  // },
 });
 
 export default config;
