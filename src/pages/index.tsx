@@ -233,9 +233,10 @@ export default function Home() {
       <Image 
         src="/pic.png" // Ensure this path is correct, relative to the 'public' directory
         alt="Allen" // Add an appropriate alt text
-        layout="responsive" // Use layout as per your design
-        width={1900} // Set the width of the image
-        height={1900} // Set the height of the image
+        width={600}
+        height={300}
+        quality={100}
+        className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
       />
     </div>
         </section>
