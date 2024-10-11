@@ -225,15 +225,19 @@ export default function Home() {
             </div>
           </div>
           <div
-            data-scroll
-            data-scroll-speed="-.01"
-            id={styles["canvas-container"]}
-            className="mt-14 h-full w-full xl:mt-0"
-          >
-            <Suspense fallback={<span>Loading...</span>}>
-              <Spline scene="/assets/scene.splinecode" />
-            </Suspense>
-          </div>
+      data-scroll
+      data-scroll-speed="-.01"
+      id={styles["canvas-container"]}
+      className="mt-14 h-full w-full xl:mt-0"
+    >
+      <Image 
+        src="/pic.png" // Ensure this path is correct, relative to the 'public' directory
+        alt="Allen" // Add an appropriate alt text
+        layout="responsive" // Use layout as per your design
+        width={1900} // Set the width of the image
+        height={1900} // Set the height of the image
+      />
+    </div>
         </section>
 
         {/* About */}
