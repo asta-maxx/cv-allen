@@ -183,7 +183,7 @@ export default function Home() {
                   <br />
                 </span>
                 <span className="clash-grotesk text-gradient text-6xl 2xl:text-8xl">
-                  Ebi
+                  Allen
                 </span>
               </h1>
               <p
