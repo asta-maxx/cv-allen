@@ -39,6 +39,7 @@ const projects = [
     title: "ZDNS",
     description: "Domain Name Server (DNS) Filtering Service using Threat Intelligence feeds and AI/ML Techniques.",
     image: "/assets/zdns.jpeg",
+    href: "#",
   }
 ];
 
