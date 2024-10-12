@@ -39,7 +39,7 @@ const projects = [
     title: "ZDNS",
     description: "Domain Name Server (DNS) Filtering Service using Threat Intelligence feeds and AI/ML Techniques.",
     image: "/assets/zdns.jpeg",
-    href: "#",
+    href: "/zdns",
   }
 ];
 
@@ -306,7 +306,7 @@ export default function Home() {
                     <CarouselItem key={project.title} className="md:basis-1/2">
                       <Card id="tilt">
                         <CardHeader className="p-0">
-                          <Link href={project.href} target="_blank" passHref>
+                          <Link href={project.href} passHref>
                             {project.image.endsWith(".webm") ? (
                               <video
                                 src={project.image}
