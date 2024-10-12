@@ -1,11 +1,10 @@
 // pages/zdns.tsx
 
-import { useRef } from "react"; // Removed useEffect
+import { useRef } from "react"; // Removed useEffect and Image
 import styles from "@/styles/Article.module.css"; // Create a separate CSS module for articles if needed
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function ZDNS() {
   const refScrollContainer = useRef(null);
@@ -35,7 +34,7 @@ export default function ZDNS() {
         <section className="mb-8">
           <h2>Introduction</h2>
           <p>
-            In an era where cyber threats are constantly evolving, the need for advanced security solutions is more pressing than ever. The team at NetOptiq, in collaboration with the Karunya Institute of Technology and Sciences, has developed <strong>zDNS</strong>—a sophisticated Domain Name Server (DNS) Filtering Service that leverages Threat Intelligence feeds and AI/ML techniques. This article delves into the features, architecture, and impact of zDNS, highlighting its significance in the realm of cybersecurity.
+            In an era where cyber threats are constantly evolving, the need for advanced security solutions is more pressing than ever. The team at NetOptiq, in collaboration with the Karunya Institute of Technology and Sciences, has developed <strong>zDNS</strong>&mdash;a sophisticated Domain Name Server (DNS) Filtering Service that leverages Threat Intelligence feeds and AI/ML techniques. This article delves into the features, architecture, and impact of zDNS, highlighting its significance in the realm of cybersecurity.
           </p>
         </section>
 
@@ -68,7 +67,7 @@ export default function ZDNS() {
             <li><strong>Backend Capabilities</strong>:
               <ul>
                 <li><strong>PCAP Analysis</strong>: zDNS can analyze packet capture (PCAP) files to identify suspicious patterns and behaviors in network traffic.</li>
-                <li><strong>Zeek Analysis</strong>: Integration with Zeek (formerly known as Bro), a powerful network analysis framework, enhances zDNS's capability to monitor and log network activity, contributing to threat detection.</li>
+                <li><strong>Zeek Analysis</strong>: Integration with Zeek (formerly known as Bro), a powerful network analysis framework, enhances zDNS&apos;s capability to monitor and log network activity, contributing to threat detection.</li>
                 <li><strong>Log Parsing</strong>: The system effectively parses logs to extract relevant data for analysis, enabling real-time insights into network behavior.</li>
                 <li><strong>Regex Blocking</strong>: zDNS employs regular expression (regex) blocking to filter out known bad domains, allowing for granular control over DNS queries.</li>
               </ul>
