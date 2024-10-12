@@ -1,10 +1,10 @@
-// pages/zdns.tsx
-
-import { useRef } from "react"; // Removed useEffect and Image
+// pages/ZDNS.tsx
+import { useRef } from "react";
 import styles from "@/styles/Article.module.css"; // Create a separate CSS module for articles if needed
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ZDNS() {
   const refScrollContainer = useRef(null);
@@ -23,81 +23,86 @@ export default function ZDNS() {
       
       {/* Article Header */}
       <header className="mb-12">
-        <h1 className="text-4xl font-bold text-foreground mb-4">zDNS: A Cutting-Edge DNS Filtering Service Utilizing AI/ML Techniques</h1>
+        <h1 className="text-4xl font-bold text-foreground mb-4">ZDNS: A Comprehensive DNS Filtering Service</h1>
         <p className="text-muted-foreground">
           Published on <time dateTime="2024-04-27">April 27, 2024</time> by Allen
         </p>
       </header>
 
+      {/* ZDNS Image */}
+      <section className="mb-8">
+        <Image 
+          src="/assets/zdns.jpeg" // Replace with the correct path to your ZDNS image
+          alt="ZDNS Overview" 
+          width={800} 
+          height={400} 
+          className="my-4 rounded-md object-cover"
+        />
+      </section>
+
       {/* Article Content */}
-      <article className="prose max-w-none text-justify">
+      <article className="prose max-w-none">
         <section className="mb-8">
-          <h2>Introduction</h2>
+        <strong><h2>Introduction</h2></strong>
           <p>
-            In an era where cyber threats are constantly evolving, the need for advanced security solutions is more pressing than ever. The team at NetOptiq, in collaboration with the Karunya Institute of Technology and Sciences, has developed <strong>zDNS</strong>&mdash;a sophisticated Domain Name Server (DNS) Filtering Service that leverages Threat Intelligence feeds and AI/ML techniques. This article delves into the features, architecture, and impact of zDNS, highlighting its significance in the realm of cybersecurity.
+            ZDNS is a Domain Name Server (DNS) Filtering Service designed to enhance cybersecurity by leveraging Threat Intelligence feeds and AI/ML techniques. This service aims to provide robust protection against malicious domains and ensure safe browsing experiences.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2>Overview of zDNS</h2>
-          <p>
-            zDNS is designed to enhance DNS security by employing advanced analytics to identify and filter malicious domain requests. By integrating threat intelligence with artificial intelligence and machine learning algorithms, zDNS can effectively classify and block harmful traffic, ensuring safer browsing experiences for users and organizations.
-          </p>
-        </section>
-
-        <section className="mb-8">
-          <h2>Key Features</h2>
+        <strong><h2>Features</h2></strong>
           <ul>
-            <li><strong>Threat Intelligence Integration</strong>: zDNS utilizes comprehensive threat intelligence feeds to stay ahead of emerging threats. This allows the system to dynamically adapt and respond to new types of attacks, providing a proactive defense mechanism.</li>
-            <li><strong>AI/ML Techniques</strong>:
-              <ul>
-                <li><strong>DGA Classification</strong>: One of the standout features of zDNS is its ability to classify Domain Generation Algorithms (DGAs) using machine learning models. 
-                  <ul>
-                    <li><strong>Model Performance</strong>:
-                      <ul>
-                        <li><strong>Naive Bayes</strong>: Achieving an impressive accuracy of <strong>99.65%</strong>.</li>
-                        <li><strong>distBERT</strong>: Offering a competitive accuracy of <strong>99.4%</strong>.</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>These high accuracy rates signify the robustness of zDNS in detecting and mitigating threats that utilize DGAs to generate malicious domains.</li>
-              </ul>
-            </li>
-            <li><strong>Backend Capabilities</strong>:
-              <ul>
-                <li><strong>PCAP Analysis</strong>: zDNS can analyze packet capture (PCAP) files to identify suspicious patterns and behaviors in network traffic.</li>
-                <li><strong>Zeek Analysis</strong>: Integration with Zeek (formerly known as Bro), a powerful network analysis framework, enhances zDNS&apos;s capability to monitor and log network activity, contributing to threat detection.</li>
-                <li><strong>Log Parsing</strong>: The system effectively parses logs to extract relevant data for analysis, enabling real-time insights into network behavior.</li>
-                <li><strong>Regex Blocking</strong>: zDNS employs regular expression (regex) blocking to filter out known bad domains, allowing for granular control over DNS queries.</li>
-              </ul>
-            </li>
-            <li><strong>Frontend Visualization</strong>:
-              <ul>
-                <li><strong>Grafana</strong>: The frontend is powered by Grafana, which provides a user-friendly interface for monitoring and visualizing DNS traffic. This visualization helps security teams quickly identify trends and anomalies in real-time.</li>
-              </ul>
-            </li>
-            <li><strong>Unbound Integration</strong>: zDNS seamlessly integrates with Unbound, a validating, recursive, and caching DNS resolver, to enhance DNS query resolution while maintaining high security standards.</li>
+            <li>Real-time threat intelligence integration</li>
+            <li>AI/ML-driven anomaly detection</li>
+            <li>Scalable and high-performance DNS resolution</li>
+            <li>User-friendly dashboard for monitoring and management</li>
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2>AI/ML Implementation</h2>
+        <strong><h2>Technical Architecture</h2></strong>
           <p>
-            User&apos;s contribution to the zDNS project focused on the AI/ML components. This included the development of machine learning models capable of classifying DGA traffic. The models were trained using extensive datasets to recognize malicious patterns, significantly improving the accuracy of threat detection.
+            The architecture of ZDNS is built to ensure scalability and reliability. It incorporates multiple layers of security and uses machine learning models to analyze and filter DNS requests effectively.
+          </p>
+          <Image 
+            src="/assets/zdns-arch.png" 
+            alt="ZDNS Architecture Diagram" 
+            width={800} 
+            height={400} 
+            className="my-4 rounded-md object-cover"
+          />
+        </section>
+
+        <section className="mb-8">
+          <strong><h2>Implementation Details</h2></strong>
+          <p>
+            Implementing ZDNS involved several key steps, including:
+          </p>
+          <ol>
+            <li>Integrating Threat Intelligence feeds for up-to-date threat data.</li>
+            <li>Developing AI/ML models to detect and predict malicious domains.</li>
+            <li>Setting up a scalable DNS resolution infrastructure.</li>
+            <li>Creating a comprehensive dashboard for real-time monitoring.</li>
+          </ol>
+        </section>
+
+        <section className="mb-8">
+          <strong><h2>AI/ML Implementation</h2></strong>
+          <p>
+            User&apos;s contribution to the ZDNS project focused on the AI/ML components. This included the development of machine learning models capable of classifying DGA traffic. The models were trained using extensive datasets to recognize malicious patterns, significantly improving the accuracy of threat detection.
           </p>
           <p>
-            Additionally, the implementation of a <strong>STIX/TAXII server</strong> allows for standardized threat information sharing, enhancing collaboration and responsiveness to threats. This server serves as a centralized hub for threat intelligence, facilitating automated updates and enabling the zDNS system to respond to new threats as they emerge.
+            Additionally, the implementation of a <strong>STIX/TAXII server</strong> allows for standardized threat information sharing, enhancing collaboration and responsiveness to threats. This server serves as a centralized hub for threat intelligence, facilitating automated updates and enabling the ZDNS system to respond to new threats as they emerge.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2>Conclusion</h2>
+        <strong><h2>Conclusion</h2></strong>
           <p>
-            zDNS represents a significant advancement in the field of cybersecurity, combining threat intelligence with sophisticated AI/ML techniques to provide robust DNS filtering services. As cyber threats become increasingly sophisticated, solutions like zDNS are essential for safeguarding digital environments. The contributions made by the NetOptiq team, particularly in the AI/ML domain, underscore the importance of innovation and collaboration in developing effective cybersecurity measures. 
+            ZDNS represents a significant advancement in the field of cybersecurity, combining threat intelligence with sophisticated AI/ML techniques to provide robust DNS filtering services. As cyber threats become increasingly sophisticated, solutions like ZDNS are essential for safeguarding digital environments. The contributions made by the NetOptiq team, particularly in the AI/ML domain, underscore the importance of innovation and collaboration in developing effective cybersecurity measures.
           </p>
           <p>
-            With its high accuracy rates and advanced capabilities, zDNS stands poised to make a meaningful impact in the ongoing battle against cyber threats, ensuring a safer online experience for users and organizations alike.
+            With its high accuracy rates and advanced capabilities, ZDNS stands poised to make a meaningful impact in the ongoing battle against cyber threats, ensuring a safer online experience for users and organizations alike.
           </p>
         </section>
       </article>
