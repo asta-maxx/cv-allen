@@ -1,19 +1,19 @@
-// pages/ZDNS.tsx
 import { useRef } from "react";
-import styles from "@/styles/Article.module.css"; // Create a separate CSS module for articles if needed
-import { Button } from "@/components/ui/button";
-import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ArrowRight } from "lucide-react";
 
-export default function ZDNS() {
-  const refScrollContainer = useRef(null);
+// Assuming you're using CSS Modules
+import styles from "@/styles/Article.module.css";
+
+const ZDNS = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={refScrollContainer} className={styles.articleContainer}>
-      {/* Navigation Link to Home */}
+    <div ref={scrollContainerRef} className={styles.articleContainer}>
       <nav className="mb-8">
-        <Link href="/" passHref>
+        <Link href="/">
           <Button variant="ghost" className="flex items-center">
             <ChevronLeft className="mr-2 h-4 w-4" />
             Back to Home
@@ -21,101 +21,131 @@ export default function ZDNS() {
         </Link>
       </nav>
       
-      {/* Article Header */}
       <header className="mb-12">
-        <h1 className="text-4xl font-bold text-foreground mb-4">ZDNS: A Comprehensive DNS Filtering Service</h1>
+        <h1 className="text-4xl font-bold text-foreground mb-4">zDNS: Advanced DNS Filtering with AI/ML and Threat Intelligence</h1>
         <p className="text-muted-foreground">
           Published on <time dateTime="2024-04-27">April 27, 2024</time> by Allen
         </p>
       </header>
 
-      {/* ZDNS Image */}
       <section className="mb-8">
         <Image 
-          src="/assets/zdns.jpeg" // Replace with the correct path to your ZDNS image
-          alt="ZDNS Overview" 
+          src="/assets/zdns.jpeg"
+          alt="zDNS Overview" 
           width={800} 
           height={400} 
           className="my-4 rounded-md object-cover"
         />
       </section>
 
-      {/* Article Content */}
       <article className="prose max-w-none">
         <section className="mb-8">
-        <strong><h2>Introduction</h2></strong>
+          <h2 className="text-2xl font-bold mb-4">Introduction</h2>
           <p>
-            ZDNS is a Domain Name Server (DNS) Filtering Service designed to enhance cybersecurity by leveraging Threat Intelligence feeds and AI/ML techniques. This service aims to provide robust protection against malicious domains and ensure safe browsing experiences.
+            NetOptiq, in collaboration with Karunya Institute of Technology and Sciences, has developed zDNS, an innovative Domain Name Server (DNS) filtering service. This cutting-edge solution, developed between December 2023 and January 2024, leverages threat intelligence feeds and advanced AI/ML techniques to enhance cybersecurity measures.
           </p>
         </section>
 
         <section className="mb-8">
-        <strong><h2>Features</h2></strong>
-          <ul>
-            <li>Real-time threat intelligence integration</li>
-            <li>AI/ML-driven anomaly detection</li>
-            <li>Scalable and high-performance DNS resolution</li>
-            <li>User-friendly dashboard for monitoring and management</li>
+          <h2 className="text-2xl font-bold mb-4">Architecture Overview</h2>
+          <p>
+            The zDNS system employs a sophisticated architecture that combines on-premises server components with cloud-based infrastructure:
+          </p>
+          <h3 className="text-xl font-semibold mt-4 mb-2">Server Components</h3>
+          <ul className="list-disc pl-6">
+            <li><strong>Unbound Cache DNS</strong>: 
+              <ul className="list-circle pl-6">
+                <li>DNS Cache Proxy: Handles initial DNS requests</li>
+                <li>DNS Resolver: Resolves domain names</li>
+                <li>Redis Cache: Improves performance by caching resolved queries</li>
+              </ul>
+            </li>
+            <li><strong>Blacklist DB</strong>: Stores known malicious domains</li>
+            <li><strong>Threat Intelligence Feeds</strong>: Continuously updates the system with the latest threat data</li>
+            <li><strong>AI Engine</strong>: Employs machine learning models for real-time threat detection</li>
+          </ul>
+          <h3 className="text-xl font-semibold mt-4 mb-2">Cloud Infrastructure</h3>
+          <ul className="list-disc pl-6">
+            <li><strong>Load Balancer (HAProxy)</strong>: Distributes incoming traffic across the Kubernetes cluster</li>
+            <li><strong>Kubernetes Cluster</strong>: Manages containerized applications for scalability and reliability</li>
+            <li><strong>Log DB</strong>: Stores system logs for analysis and auditing</li>
+            <li><strong>Alerting and Monitoring Engine</strong>: Provides real-time system health and threat alerts</li>
           </ul>
         </section>
 
         <section className="mb-8">
-        <strong><h2>Technical Architecture</h2></strong>
+          <h2 className="text-2xl font-bold mb-4">Key Features</h2>
+          <h3 className="text-xl font-semibold mt-4 mb-2">AI/ML Capabilities</h3>
           <p>
-            The architecture of ZDNS is built to ensure scalability and reliability. It incorporates multiple layers of security and uses machine learning models to analyze and filter DNS requests effectively.
+            The zDNS system boasts impressive AI/ML capabilities, particularly in Domain Generation Algorithm (DGA) classification:
           </p>
-          <Image 
-            src="/assets/zdns-arch.png" 
-            alt="ZDNS Architecture Diagram" 
-            width={800} 
-            height={400} 
-            className="my-4 rounded-md object-cover"
-          />
+          <ul className="list-disc pl-6">
+            <li>Naive Bayes model: 99.65% accuracy</li>
+            <li>DistilBERT model: 99.4% accuracy</li>
+          </ul>
+          <p>
+            These high-accuracy models enable the system to effectively identify and block malicious domains generated by DGAs, a common technique used by malware to evade detection.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-4 mb-2">Backend Analysis</h3>
+          <p>The backend of zDNS incorporates multiple analysis techniques:</p>
+          <ul className="list-disc pl-6">
+            <li>PCAP Analysis: Examines network packet captures for deep traffic inspection</li>
+            <li>Zeek Analysis: Utilizes the Zeek Network Security Monitor for advanced network analysis</li>
+            <li>Log Parsing: Efficiently processes system logs for threat indicators</li>
+            <li>Regex Blocking: Implements pattern-based blocking for flexible rule creation</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mt-4 mb-2">Frontend Visualization</h3>
+          <p>zDNS employs Grafana for its frontend, providing intuitive dashboards and visualizations of network activity, threats, and system performance.</p>
+
+          <h3 className="text-xl font-semibold mt-4 mb-2">Unbound Integration</h3>
+          <p>The system integrates machine learning capabilities directly into the Unbound DNS resolver, allowing for real-time, AI-driven decision-making on DNS queries.</p>
         </section>
 
         <section className="mb-8">
-          <strong><h2>Implementation Details</h2></strong>
+          <h2 className="text-2xl font-bold mb-4">STIX/TAXII Implementation</h2>
           <p>
-            Implementing ZDNS involved several key steps, including:
+            A notable feature of zDNS is its implementation of a STIX/TAXII server, adhering to international standards for threat intelligence sharing:
           </p>
-          <ol>
-            <li>Integrating Threat Intelligence feeds for up-to-date threat data.</li>
-            <li>Developing AI/ML models to detect and predict malicious domains.</li>
-            <li>Setting up a scalable DNS resolution infrastructure.</li>
-            <li>Creating a comprehensive dashboard for real-time monitoring.</li>
-          </ol>
-        </section>
-
-        <section className="mb-8">
-          <strong><h2>AI/ML Implementation</h2></strong>
+          <ul className="list-disc pl-6">
+            <li><strong>STIX</strong> (Structured Threat Information eXpression): Provides a standardized language for describing cyber threat information</li>
+            <li><strong>TAXII</strong> (Trusted Automated eXchange of Intelligence Information): Defines protocols for securely exchanging cyber threat intelligence</li>
+          </ul>
           <p>
-            User&apos;s contribution to the ZDNS project focused on the AI/ML components. This included the development of machine learning models capable of classifying DGA traffic. The models were trained using extensive datasets to recognize malicious patterns, significantly improving the accuracy of threat detection.
-          </p>
-          <p>
-            Additionally, the implementation of a <strong>STIX/TAXII server</strong> allows for standardized threat information sharing, enhancing collaboration and responsiveness to threats. This server serves as a centralized hub for threat intelligence, facilitating automated updates and enabling the ZDNS system to respond to new threats as they emerge.
+            This implementation enhances the system's ability to consume and share threat data with other security tools and organizations, fostering a collaborative approach to cybersecurity.
           </p>
         </section>
 
         <section className="mb-8">
-        <strong><h2>Conclusion</h2></strong>
+          <h2 className="text-2xl font-bold mb-4">Compliance with International Standards</h2>
+          <p>zDNS adheres to several international standards and best practices:</p>
+          <ul className="list-disc pl-6">
+            <li>ISO/IEC 27001: Information security management</li>
+            <li>NIST Cybersecurity Framework: Guidelines for managing and reducing cybersecurity risk</li>
+            <li>GDPR: Ensures proper handling of personal data in DNS queries</li>
+            <li>MITRE ATT&CK Framework: Aligns threat detection with widely-recognized attack techniques</li>
+          </ul>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">Conclusion</h2>
           <p>
-            ZDNS represents a significant advancement in the field of cybersecurity, combining threat intelligence with sophisticated AI/ML techniques to provide robust DNS filtering services. As cyber threats become increasingly sophisticated, solutions like ZDNS are essential for safeguarding digital environments. The contributions made by the NetOptiq team, particularly in the AI/ML domain, underscore the importance of innovation and collaboration in developing effective cybersecurity measures.
-          </p>
-          <p>
-            With its high accuracy rates and advanced capabilities, ZDNS stands poised to make a meaningful impact in the ongoing battle against cyber threats, ensuring a safer online experience for users and organizations alike.
+            zDNS represents a significant advancement in DNS filtering technology, combining state-of-the-art AI/ML techniques with robust threat intelligence capabilities. Its high-accuracy models, comprehensive backend analysis, and adherence to international standards make it a powerful tool for organizations seeking to enhance their cybersecurity posture. As cyber threats continue to evolve, solutions like zDNS play a crucial role in maintaining a secure digital environment.
           </p>
         </section>
       </article>
 
-      {/* Footer Call-to-Action */}
-      <section className="mt-16 text-center">
+      <section className="mt-16 flex flex-col items-center">
         <h2 className="text-2xl font-semibold mb-4">Interested in Learning More?</h2>
-        <Link href="/contact" passHref>
-          <Button>
-            Get in Touch <ChevronLeft className="ml-2 h-4 w-4" />
+        <Link href="/contact">
+          <Button className="flex items-center">
+            Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </Link>
       </section>
     </div>
   );
-}
+};
+
+export default ZDNS;
