@@ -137,13 +137,14 @@ const ZDNS = () => {
       </article>
 
       <section className="mt-16 flex flex-col items-center">
-        <h2 className="text-2xl font-semibold mb-4">Interested in Learning More?</h2>
-        <Link href="/contact">
-          <Button className="flex items-center">
-            Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </Link>
-      </section>
+  <h2 className="text-2xl font-semibold mb-4">Interested in Learning More?</h2>
+  <Link href="mailto:kairose.allen@gmail.com">
+    <Button className="flex items-center">
+      Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
+    </Button>
+  </Link>
+</section>
+
     </div>
   );
 };
